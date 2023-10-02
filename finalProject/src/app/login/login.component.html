@@ -1,0 +1,34 @@
+<div class="container py-4">
+
+<h2 class="m-5">Login Now</h2>
+
+<!-- <h3 class="m-5">{{loginForm.get('first_name')?.errors|json}}</h3> -->
+
+<div *ngIf="error" class="alert alert-danger">
+    <h6>{{error}}</h6>
+</div>
+
+<form (ngSubmit)="SubmitLogin(loginForm)" [formGroup]="loginForm"  class="m-5 ">
+  
+    <label for="email">email</label>
+    <input type="email" formControlName="email" class="form-control" id="email">
+
+    <div  *ngIf="loginForm.get('email')?.errors !== null && loginForm.get('email')?.touched"
+    class="alert alert-danger my-2">
+    <p *ngIf="loginForm.get('email')?.errors?.['required']"  class = "mb-0"> email is requierd </p>
+    <p *ngIf="loginForm.get('email')?.errors?.['minlength'] "  class="mb-0"> email is invalid </p>
+    </div>
+
+    <label for="password">password</label>
+    <input type="password" formControlName="password" class="form-control" id="password">
+
+    <div  *ngIf="loginForm.get('password')?.errors !== null && loginForm.get('password')?.touched" 
+    class="alert alert-danger my-2">
+    <p *ngIf="loginForm.get('password')?.errors?.['required']"  class = "mb-0"> password is requierd </p>
+    <p *ngIf="loginForm.get('password')?.errors?.['pattern'] "  class="mb-0"> password is ................. </p>
+    </div>
+
+    <button [disabled]="loginForm.invalid" class="btn mt-2 btn-info" type="submit"> Login</button>
+</form>
+    
+</div>

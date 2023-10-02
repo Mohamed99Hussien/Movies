@@ -1,0 +1,19 @@
+
+<div class="row">
+    <div class="col-md-3">
+        <img  [src]="imgPrefix + movieDetail.poster_path" alt="" class="w-100">
+    </div>
+
+    <div class="col-md-9 ">
+        <h2 class="fw-bolder">{{movieDetail.title}}</h2>
+        <p class=" p-2">{{movieDetail.overview}}</p>
+
+        <h4 >genres:</h4>
+    <ul >
+        <li *ngFor="let g of movieDetail.genres">{{g.name}}</li>
+    </ul>
+    <h5>revenue : {{movieDetail.revenue}}</h5>
+    <h5>vote_average : {{movieDetail.vote_average}}</h5>
+    </div>
+    
+</div>
